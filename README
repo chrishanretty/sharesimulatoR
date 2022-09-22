@@ -6,5 +6,5 @@ This R package supports the following academic publication:
 It can be installed using the following R commands:
 
     library(devtools)
-    devtools::install_github("chrishanretty/sharesimulatoR/")
+    devtools::install_github("chrishanretty/sharesimulatoR")
 
