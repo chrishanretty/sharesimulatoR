@@ -11,7 +11,7 @@ Authors@R: c(person(given = "Denis",
                      email = "chris.hanretty@rhul.ac.uk",
                     role = c("cre", "aut")))
 Maintainer: Chris Hanretty <chris.hanretty@rhul.ac.uk>
-Description: The \code{sharesimulatoR} package offers 
+Description: The \code{sharesimulatoR} package offers functions for simulating realistic party systems of a given size and for plotting the simulated seat/vote shares of the top-ranking parties. It also features an interactive Shiny GUI for these tasks.
 URL: https://github.com/chrishanretty/sharesimulatoR
 BugReports: https://github.com/chrishanretty/sharesimulatoR/issues
 Encoding: UTF-8

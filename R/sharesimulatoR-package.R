@@ -1,6 +1,6 @@
 #' The 'sharesimulatoR' package.
 #'
-#' @title Data and Methods for Analyzing Comparative Vote Switching Data
+#' @title Simulate Realistic Party Systems of a Given Size
 #'
 #' @description The \code{sharesimulatorR} package offers functions for
 #' simulating realistic party systems of a given size.
