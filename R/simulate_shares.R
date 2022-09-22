@@ -43,15 +43,16 @@ simulate_shares <- function(N0,
   ## Set seed
   set.seed(seed)
 
-    if (length(what) > 1) {
-        message("Multiple values passed to `what`. Picking first value. ")
-        what <- what[1]
-    }
-    if (length(basis) > 1) {
-        message("Multiple values passed to `basis`. Picking first value. ")
-        basis <- basis[1]
-    }
-    
+  ## Set defaults
+  if (length(what) > 1) {
+      message("Multiple values passed to `what`. Picking first value. ")
+      what <- what[1]
+  }
+  if (length(basis) > 1) {
+      message("Multiple values passed to `basis`. Picking first value. ")
+      basis <- basis[1]
+  }
+
   ## Get alpha
   if (basis == "Posterior draws of alpha") {
     if (what == "seat-winning parties") {

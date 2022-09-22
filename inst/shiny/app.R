@@ -68,7 +68,7 @@ ui <- fluidPage(
           max = 10000L
         ),
         shiny::numericInput(
-          "alpha",
+          "alpha_stochastic",
           label = "alpha",
           value = 39.14,
           min = 5,
@@ -90,8 +90,10 @@ ui <- fluidPage(
   ),
 
   shiny::tabsetPanel(
-    shiny::tabPanel("Visualize top three shares",
-                    shiny::plotOutput("hist", height = "600px")),
+    shiny::tabPanel(
+      "Visualize top three shares",
+      shiny::plotOutput("hist", height = "600px")
+    ),
     shiny::tabPanel("See the simulated shares",
                     shiny::tableOutput("realizations"))
   ),
@@ -118,22 +120,25 @@ ui <- fluidPage(
 ####################################################################
 
 server <- function(input, output, session) {
-    library(sharesimulatoR)
+  library(sharesimulatoR)
 
-    ## Backend operations
+  ## Backend operations
   x <- shiny::eventReactive(input$sim,
                             {
                               sharesimulatoR::simulate_shares(
                                 N0 = input$n0,
                                 what = input$what,
                                 basis = input$basis,
-                                alpha = input$alpha,
+                                alpha = ifelse(
+                                  input$basis == "Freely chosen stochastic alpha",
+                                  input$alpha_stochastic,
+                                  input$alpha
+                                ),
                                 sd_alpha = input$sd_alpha,
                                 n_sim = input$n_sim,
                                 seed = 20220920L
                               )
                             })
-
 
   output$hist <- shiny::renderPlot({
     par(mfrow = c(min(c(3, input$n0)), 1),

@@ -7,7 +7,7 @@
 #' size).
 #' @param main Main title (optional).
 #' @param max_parties Maximum number of (top-ranking) parties to include in the
-#' plot.
+#' plot. Must be at least two and at most eight.
 #' @param what What to simulate: seat or vote-winning parties. Affects the
 #' choice of the concentration parameter if
 #' \code{basis == "Posterior draws of alpha"}.
@@ -36,7 +36,7 @@
 
 plot_simulated_shares <- function(N0,
                                   main = NULL,
-                                  max_parties = 3L,
+                                  max_parties = 2:8,
                                   what = c("seat-winning parties",
                                            "vote-winning parties"),
                                   basis = c(
@@ -50,9 +50,25 @@ plot_simulated_shares <- function(N0,
                                   seed = 20220920L,
                                   combine = FALSE) {
 
-    ## Config
-    the_pal <- c("#1b9e77b3", "#d95f02b3", "#7570b3b3")
-    
+  ## Config
+  the_pal <- c("#1B9E77B3",
+               "#D95F02B3",
+               "#7570B3B3",
+               "#E7298AB3",
+               "#66A61EB3",
+               "#E6AB02B3",
+               "#A6761DB3",
+               "#666666B3")
+  if (!combine) {
+    main <- NULL
+  }
+
+  ## Set defaults
+  if (length(max_parties) > 1) {
+    message("Multiple values passed to `max_parties`. Picking first value. ")
+    max_parties <- max_parties[1]
+  }
+
   ## Simulate
   simulated_shares <- sharesimulatoR::simulate_shares(N0,
                                                       what,
@@ -67,13 +83,14 @@ plot_simulated_shares <- function(N0,
     par(mfrow = c(min(c(max_parties, N0)), 1),
         mar = c(5, 2, 1, 1))
   } else {
-    par(mar = c(5, 2, ifelse(is.null(main), 1, 3), 1))
+    par(mfrow = c(1, 1),
+        mar = c(5, 2, ifelse(is.null(main), 1, 3), 1))
   }
   for (i in 1:min(c(max_parties, N0))) {
     if (i == 1) {
       hist(
         100 * simulated_shares[, i],
-        main = ifelse(combine, main, NULL),
+        main = main,
         col = the_pal[i],
         xlab = ifelse(
           what == "vote-winning parties",
@@ -86,8 +103,14 @@ plot_simulated_shares <- function(N0,
       )
     } else {
       hist(
+        main = main,
         100 * simulated_shares[, i],
         col = the_pal[i],
+        xlab = ifelse(combine,
+                      NULL,
+                      ifelse(what == "vote-winning parties",
+                             "Vote share (%)",
+                             "Seat share (%)")),
         breaks = 50,
         border = "#ffffff80",
         add = combine
