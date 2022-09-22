@@ -118,7 +118,9 @@ ui <- fluidPage(
 ####################################################################
 
 server <- function(input, output, session) {
-  ## Backend operations
+    library(sharesimulatoR)
+
+    ## Backend operations
   x <- shiny::eventReactive(input$sim,
                             {
                               sharesimulatoR::simulate_shares(

@@ -1,0 +1,11 @@
+name: shiny
+title:
+username:
+account: chanret
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7087567
+bundleId: 6327229
+url: https://chanret.shinyapps.io/shiny/
+when: 1663843013.85197
+lastSyncTime: 1663843013.85199

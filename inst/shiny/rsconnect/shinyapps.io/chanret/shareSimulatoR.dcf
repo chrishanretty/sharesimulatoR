@@ -1,0 +1,11 @@
+name: shareSimulatoR
+title: Generate realistic shares for party systems of fixed size
+username:
+account: chanret
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7087599
+bundleId: 6327260
+url: https://chanret.shinyapps.io/shareSimulatoR/
+when: 1663844110.40592
+lastSyncTime: 1663844110.40593
