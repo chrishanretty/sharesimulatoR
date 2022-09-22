@@ -1,0 +1,30 @@
+Package: sharesimulatoR
+Type: Package
+Title: Simulate Realistic Party Systems of a Given Size
+Version: 0.1.0
+Authors@R: c(person(given = "Denis",
+                     family = "Cohen",
+                     email = "denis.cohen@uni-mannheim.de",
+                     role = c("aut")),
+              person(given = "Chris",
+                     family = "Hanretty",
+                     email = "chris.hanretty@rhul.ac.uk",
+                    role = c("cre", "aut")))
+Maintainer: Chris Hanretty <chris.hanretty@rhul.ac.uk>
+Description: The \code{sharesimulatoR} package offers 
+URL: https://github.com/chrishanretty/sharesimulatoR
+BugReports: https://github.com/chrishanretty/sharesimulatoR/issues
+Encoding: UTF-8
+LazyData: true
+Biarch: true
+Depends: 
+    R (>= 3.6.0)
+Imports: 
+    dplyr (>= 1.0.10),
+    gtools (>= 3.9.2),
+    magrittr (>= 2.0.3),
+    shiny (>= 1.7.2),
+    shinyjs (>= 2.1.0)
+SystemRequirements: GNU make
+RoxygenNote: 7.2.1
+License: GPL-3
