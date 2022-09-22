@@ -91,7 +91,7 @@ ui <- fluidPage(
 
   shiny::tabsetPanel(
     shiny::tabPanel("Visualize top three shares",
-                    shiny::plotOutput("hist")),
+                    shiny::plotOutput("hist", height = "600px")),
     shiny::tabPanel("See the simulated shares",
                     shiny::tableOutput("realizations"))
   ),
@@ -152,7 +152,7 @@ server <- function(input, output, session) {
         breaks = 20
       )
     }
-  })
+  }, res = 120)
 
   output$realizations <- shiny::renderTable({
     stats::setNames(as.data.frame(100 * x(),
@@ -188,5 +188,8 @@ server <- function(input, output, session) {
   })
 
 }
+
+library(shiny)
+options(shiny.usecairo = FALSE)
 
 shiny::shinyApp(ui = ui, server = server)
