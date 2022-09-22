@@ -1,0 +1,10 @@
+This R package supports the following academic publication:
+
+> Cohen, D. and Hanretty, C. (2022). "Simulating party shares". Under
+  review at *Political Analysis*.
+
+It can be installed using the following R commands:
+
+    library(devtools)
+    devtools::install_github("chrishanretty/sharesimulatoR/")
+
