@@ -65,6 +65,7 @@ simulate_shares <- function(N0,
       n_sim <- length(alpha_draws)
     }
 
+    ## Simulate elections
     simulated_elections <-
       sapply(alpha_draws, function (alpha) {
         gtools::rdirichlet(n = 1L,
