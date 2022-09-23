@@ -21,8 +21,8 @@
 #' parameter.
 #' @param n_sim Number of simulations. Fixed to the number of posterior draws
 #' supplied by the package data unless users request freely chosen
-#' deterministic/stochastic concentration parameters."
-#' @param seed A seed set of reproducability.
+#' deterministic/stochastic concentration parameters.
+#' @param seed A seed set for reproducability.
 #'
 #' @return Returns a matrix which contains \code{n_sim} simulations (in rows) for N0 parties (in columns).
 #'
